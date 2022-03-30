@@ -83,6 +83,7 @@ extension Schema {
                 }
             }
             return []
+        case let .reference(ref): return ref.value.requiredProperties
         default: return []
         }
     }
@@ -96,6 +97,7 @@ extension Schema {
                     return objectSchema.optionalProperties
                 }
             }
+        case let .reference(ref): return ref.value.optionalProperties
         default: break
         }
         return []
